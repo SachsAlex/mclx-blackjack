@@ -260,78 +260,80 @@ class App extends React.Component {
     }
 
     return (
-      <div>
-        <p className="font">Dealer's Hand ({this.state.dealer.count})</p>
-        <table className="cards">
-          <tr>
-            {this.state.dealer.cards.map((card, i) => {
-              return <Card key={i} number={card.number} suit={card.suit} />;
-            })}
-          </tr>
-        </table>
+      <div className="background">
+        <div>
+          <p className="font">Dealer's Hand ({this.state.dealer.count})</p>
+          <table className="cards">
+            <tr>
+              {this.state.dealer.cards.map((card, i) => {
+                return <Card key={i} number={card.number} suit={card.suit} />;
+              })}
+            </tr>
+          </table>
 
-        <p>{this.state.message}</p>
-        <p className="font">Your Hand ({this.state.player.count})</p>
-        <table className="cards">
-          <tr>
-            {this.state.player.cards.map((card, i) => {
-              return <Card key={i} number={card.number} suit={card.suit} />;
-            })}
-          </tr>
-        </table>
+          <p>{this.state.message}</p>
+          <p className="font">Your Hand ({this.state.player.count})</p>
+          <table className="cards">
+            <tr>
+              {this.state.player.cards.map((card, i) => {
+                return <Card key={i} number={card.number} suit={card.suit} />;
+              })}
+            </tr>
+          </table>
 
-        <div className="buttons">
-          <Button
-            onClick={() => {
-              this.startNewGame();
-            }}
-            text={"New Game"}
-          />
-          <Button
-            onClick={() => {
-              this.hit();
-            }}
-            text={"Hit"}
-          />
-          <Button
-            onClick={() => {
-              this.stand();
-            }}
-            text={"Stand"}
-          />
-        </div>
-
-        <p className="font">Wallet: ${this.state.wallet}</p>
-        {!this.state.currentBet ? (
-          <div className="input-bet">
-            <form>
-              <input
-                type="text"
-                name="bet"
-                placeholder=""
-                value={this.state.inputValue}
-                onChange={this.inputChange.bind(this)}
-              />
-            </form>
-            <Button
-              onClick={() => {
-                this.placeBet();
-              }}
-              text={"Place Bet"}
-            />
-          </div>
-        ) : null}
-        {this.state.gameOver ? (
           <div className="buttons">
             <Button
               onClick={() => {
-                this.startNewGame("continue");
+                this.startNewGame();
               }}
-              text={"Continue"}
-              Continue
+              text={"New Game"}
+            />
+            <Button
+              onClick={() => {
+                this.hit();
+              }}
+              text={"Hit"}
+            />
+            <Button
+              onClick={() => {
+                this.stand();
+              }}
+              text={"Stand"}
             />
           </div>
-        ) : null}
+
+          <p className="font">Wallet: ${this.state.wallet}</p>
+          {!this.state.currentBet ? (
+            <div className="input-bet">
+              <form>
+                <input
+                  type="text"
+                  name="bet"
+                  placeholder=""
+                  value={this.state.inputValue}
+                  onChange={this.inputChange.bind(this)}
+                />
+              </form>
+              <Button
+                onClick={() => {
+                  this.placeBet();
+                }}
+                text={"Place Bet"}
+              />
+            </div>
+          ) : null}
+          {this.state.gameOver ? (
+            <div className="buttons">
+              <Button
+                onClick={() => {
+                  this.startNewGame("continue");
+                }}
+                text={"Continue"}
+                Continue
+              />
+            </div>
+          ) : null}
+        </div>
       </div>
     );
   }
