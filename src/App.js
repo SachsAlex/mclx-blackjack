@@ -139,7 +139,7 @@ class App extends React.Component {
 
   getCount(cards) {
     const rearranged = [];
-    cards.forEach((card) => {
+    cards.forEach(card => {
       if (card.number === "A") {
         rearranged.push(card);
       } else if (card.number) {
