@@ -51,3 +51,7 @@ p {
   display: flex;
   justify-content: center;
 }
+
+.font {
+  font-family: "Tenor Sans", sans-serif;
+}

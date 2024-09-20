@@ -261,6 +261,25 @@ class App extends React.Component {
 
     return (
       <div>
+        <p className="font">Dealer's Hand ({this.state.dealer.count})</p>
+        <table className="cards">
+          <tr>
+            {this.state.dealer.cards.map((card, i) => {
+              return <Card key={i} number={card.number} suit={card.suit} />;
+            })}
+          </tr>
+        </table>
+
+        <p>{this.state.message}</p>
+        <p className="font">Your Hand ({this.state.player.count})</p>
+        <table className="cards">
+          <tr>
+            {this.state.player.cards.map((card, i) => {
+              return <Card key={i} number={card.number} suit={card.suit} />;
+            })}
+          </tr>
+        </table>
+
         <div className="buttons">
           <Button
             onClick={() => {
@@ -282,7 +301,7 @@ class App extends React.Component {
           />
         </div>
 
-        <p>Wallet: ${this.state.wallet}</p>
+        <p className="font">Wallet: ${this.state.wallet}</p>
         {!this.state.currentBet ? (
           <div className="input-bet">
             <form>
@@ -313,25 +332,6 @@ class App extends React.Component {
             />
           </div>
         ) : null}
-        <p>Your Hand ({this.state.player.count})</p>
-        <table className="cards">
-          <tr>
-            {this.state.player.cards.map((card, i) => {
-              return <Card key={i} number={card.number} suit={card.suit} />;
-            })}
-          </tr>
-        </table>
-
-        <p>Dealer's Hand ({this.state.dealer.count})</p>
-        <table className="cards">
-          <tr>
-            {this.state.dealer.cards.map((card, i) => {
-              return <Card key={i} number={card.number} suit={card.suit} />;
-            })}
-          </tr>
-        </table>
-
-        <p>{this.state.message}</p>
       </div>
     );
   }
