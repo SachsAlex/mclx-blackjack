@@ -42,9 +42,21 @@ p {
 
 .card,
 .card-red {
-  height: 150px;
-  width: 100px;
+  height: 135px;
+  width: 90px;
   background-color: #bfbfbf;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-card {
+  height: 135px;
+  width: 90px;
+  background-image: url("../mediathek/images/background/Carbon-Kartendesign-vert.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 5px;
   display: flex;
   justify-content: center;
