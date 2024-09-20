@@ -1,5 +1,7 @@
 import React from "react";
-import "./App.css";
+import "./styles/App.css";
+import "./styles/Globals.css";
+import Button from "./components/button/Button";
 
 class App extends React.Component {
   constructor(props) {
@@ -260,27 +262,24 @@ class App extends React.Component {
     return (
       <div>
         <div className="buttons">
-          <button
+          <Button
             onClick={() => {
               this.startNewGame();
             }}
-          >
-            New Game
-          </button>
-          <button
+            text={"New Game"}
+          />
+          <Button
             onClick={() => {
               this.hit();
             }}
-          >
-            Hit
-          </button>
-          <button
+            text={"Hit"}
+          />
+          <Button
             onClick={() => {
               this.stand();
             }}
-          >
-            Stand
-          </button>
+            text={"Stand"}
+          />
         </div>
 
         <p>Wallet: ${this.state.wallet}</p>
@@ -295,24 +294,23 @@ class App extends React.Component {
                 onChange={this.inputChange.bind(this)}
               />
             </form>
-            <button
+            <Button
               onClick={() => {
                 this.placeBet();
               }}
-            >
-              Place Bet
-            </button>
+              text={"Place Bet"}
+            />
           </div>
         ) : null}
         {this.state.gameOver ? (
           <div className="buttons">
-            <button
+            <Button
               onClick={() => {
                 this.startNewGame("continue");
               }}
-            >
+              text={"Continue"}
               Continue
-            </button>
+            />
           </div>
         ) : null}
         <p>Your Hand ({this.state.player.count})</p>
