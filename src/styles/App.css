@@ -54,7 +54,7 @@ p {
 .back-card {
   height: 135px;
   width: 90px;
-  background-image: url("../mediathek/images/background/Carbon-Kartendesign-vert.webp");
+  background-image: url("../mediathek/images/cards/backside.png");
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 5px;

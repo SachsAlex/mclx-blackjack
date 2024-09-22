@@ -2,6 +2,7 @@ import React from "react";
 import "./styles/App.css";
 import "./styles/Globals.css";
 import Button from "./components/button/Button";
+import data from "./mediathek/deck.json";
 
 class App extends React.Component {
   constructor(props) {
@@ -20,6 +21,8 @@ class App extends React.Component {
   }
 
   generateDeck() {
+    // const deck = JSON.parse(data);
+    // deck.map(card => card.card)
     const cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
     const suits = ["♦", "♣", "♥", "♠"];
     const deck = [];
@@ -51,6 +54,7 @@ class App extends React.Component {
   }
 
   startNewGame(type) {
+    console.log("Gewollte Karten: ", JSON.stringify(data));
     if (type === "continue") {
       if (this.state.wallet > 0) {
         const deck =
