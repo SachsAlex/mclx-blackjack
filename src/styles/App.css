@@ -44,7 +44,9 @@ p {
 .card-red {
   height: 135px;
   width: 90px;
-  background-color: #bfbfbf;
+  background-image: url("../mediathek/images/background/Carbon-Kartendesign-vertb1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 5px;
   display: flex;
   justify-content: center;

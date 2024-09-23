@@ -21,8 +21,6 @@ class App extends React.Component {
   }
 
   generateDeck() {
-    // const deck = JSON.parse(data);
-    // deck.map(card => card.card)
     const cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
     const suits = ["♦", "♣", "♥", "♠"];
     const deck = [];

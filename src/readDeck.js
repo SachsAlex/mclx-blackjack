@@ -10,4 +10,10 @@ fs.readFile("./mediathek/deck.json", "utf8", (err, data) => {
     "Kartenwerte: ",
     deck.map(card => card.card),
   );
+  console.log("Rückseite: ", deck.find(card => card.card === "B ♦").card);
+  const card = deck.find(card => card.card === "B ♦").card;
+  const img = document.createElement("imgLink");
+  img.src = card.image;
+  console.log("Bild: ", img, card);
+  document.getElementById("card-container").appendChild(img);
 });
