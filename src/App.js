@@ -157,7 +157,8 @@ class App extends React.Component {
       } else if (card.number === "A") {
         return total + 11 <= 21 ? total + 11 : total + 1;
       } else {
-        return total + card.number;
+        const cardValue = Number(card.number);
+        return total + cardValue;
       }
     }, 0);
   }

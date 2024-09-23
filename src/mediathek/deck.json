@@ -90,7 +90,7 @@
     "img": "/cards/5_of_hearts.png"
   },
   {
-    "number": "Five of ♠",
+    "number": "5",
     "suit": "♠",
     "img": "/images/cards/5_of_spades.png"
   },
@@ -180,7 +180,7 @@
     "img": "/images/cards/9_of_clubs.png"
   },
   {
-    "number": "Ten of ♦",
+    "number": "10",
     "suit": "♦",
     "img": "/images/cards/10_of_diamonds.png"
   },
