@@ -164,51 +164,55 @@ class App extends React.Component {
 
   stand() {
     if (!this.state.gameOver) {
-      // Show dealer's 2nd card
-      const randomCard = this.getRandomCard(this.state.deck);
-      let deck = randomCard.updatedDeck;
-      let dealer = this.state.dealer;
-      dealer.cards.pop();
-      dealer.cards.push(randomCard.randomCard);
-      dealer.count = this.getCount(dealer.cards);
+      if (this.state.currentBet) {
+        // Show dealer's 2nd card
+        const randomCard = this.getRandomCard(this.state.deck);
+        let deck = randomCard.updatedDeck;
+        let dealer = this.state.dealer;
+        dealer.cards.pop();
+        dealer.cards.push(randomCard.randomCard);
+        dealer.count = this.getCount(dealer.cards);
 
-      // Keep drawing cards until count is 17 or more
-      while (dealer.count < 17) {
-        const draw = this.dealerDraw(dealer, deck);
-        dealer = draw.dealer;
-        deck = draw.updatedDeck;
-      }
-
-      if (dealer.count > 21) {
-        this.setState({
-          deck,
-          dealer,
-          wallet: this.state.wallet + this.state.currentBet * 2,
-          gameOver: true,
-          message: "Dealer bust! You win!",
-        });
-      } else {
-        const winner = this.getWinner(dealer, this.state.player);
-        let wallet = this.state.wallet;
-        let message;
-
-        if (winner === "dealer") {
-          message = "Dealer wins...";
-        } else if (winner === "player") {
-          wallet += this.state.currentBet * 2;
-          message = "You win!";
-        } else {
-          wallet += this.state.currentBet;
-          message = "Push.";
+        // Keep drawing cards until count is 17 or more
+        while (dealer.count < 17) {
+          const draw = this.dealerDraw(dealer, deck);
+          dealer = draw.dealer;
+          deck = draw.updatedDeck;
         }
 
-        this.setState({
-          deck,
-          dealer,
-          wallet,
-          gameOver: true,
-          message,
-        });
+        if (dealer.count > 21) {
+          this.setState({
+            deck,
+            dealer,
+            wallet: this.state.wallet + this.state.currentBet * 2,
+            gameOver: true,
+            message: "Dealer bust! You win!",
+          });
+        } else {
+          const winner = this.getWinner(dealer, this.state.player);
+          let wallet = this.state.wallet;
+          let message;
+
+          if (winner === "dealer") {
+            message = "Dealer wins...";
+          } else if (winner === "player") {
+            wallet += this.state.currentBet * 2;
+            message = "You win!";
+          } else {
+            wallet += this.state.currentBet;
+            message = "Push.";
+          }
+
+          this.setState({
+            deck,
+            dealer,
+            wallet,
+            gameOver: true,
+            message,
+          });
+        }
+      } else {
+        this.setState({ message: "Please place bet." });
       }
     } else {
       this.setState({ message: "Game over! Please start a new game." });
