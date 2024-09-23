@@ -1,262 +1,262 @@
 [
   {
-    "name": "Ace of ♦",
-    "imgLink": "./images/cards/ace_of_diamonds.png",
-    "card": "A ♦"
+    "number": "A",
+    "suit": "♦",
+    "img": "/images/cards/ace_of_diamonds.png"
   },
   {
-    "name": "Ace of ♥",
-    "imgLink": "./images/cards/ace_of_hearts.png",
-    "card": "A ♥"
+    "number": "A",
+    "suit": "♥",
+    "img": "/images/cards/ace_of_hearts.png"
   },
   {
-    "name": "Ace of ♠",
-    "imgLink": "./images/cards/ace_of_spades.png",
-    "card": "A ♠"
+    "number": "A",
+    "suit": "♠",
+    "img": "/images/cards/ace_of_spades.png"
   },
   {
-    "name": "Ace of ♣",
-    "imgLink": "./images/cards/ace_of_clubs.png",
-    "card": "A ♣"
+    "number": "A",
+    "suit": "♣",
+    "img": "/images/cards/ace_of_clubs.png"
   },
   {
-    "name": "Two of ♦",
-    "imgLink": "./images/cards/2_of_diamonds.png",
-    "card": "2 ♦"
+    "number": "2",
+    "suit": "♦",
+    "img": "/images/cards/2_of_diamonds.png"
   },
   {
-    "name": "Two of ♥",
-    "imgLink": "./images/cards/2_of_hearts.png",
-    "card": "2 ♥"
+    "number": "2",
+    "suit": "♥",
+    "img": "/images/cards/2_of_hearts.png"
   },
   {
-    "name": "Two of ♠",
-    "imgLink": "./images/cards/2_of_spades.png",
-    "card": "2 ♠"
+    "number": "2",
+    "suit": "♠",
+    "img": "/images/cards/2_of_spades.png"
   },
   {
-    "name": "Two of ♣",
-    "imgLink": "./images/cards/2_of_clubs.png",
-    "card": "2 ♣"
+    "number": "2",
+    "suit": "♣",
+    "img": "/images/cards/2_of_clubs.png"
   },
   {
-    "name": "Three of ♦",
-    "imgLink": "./images/cards/3_of_diamonds.png",
-    "card": "3 ♦"
+    "number": "3",
+    "suit": "♦",
+    "img": "/images/cards/3_of_diamonds.png"
   },
   {
-    "name": "Three of ♥",
-    "imgLink": "./images/cards/3_of_hearts.png",
-    "card": "3 ♥"
+    "number": "3",
+    "suit": "♥",
+    "img": "/images/cards/3_of_hearts.png"
   },
   {
-    "name": "Three of ♠",
-    "imgLink": "./images/cards/3_of_spades.png",
-    "card": "3 ♠"
+    "number": "3",
+    "suit": "♠",
+    "img": "/images/cards/3_of_spades.png"
   },
   {
-    "name": "Three of ♣",
-    "imgLink": "./images/cards/3_of_clubs.png",
-    "card": "3 ♣"
+    "number": "3",
+    "suit": "♣",
+    "img": "/images/cards/3_of_clubs.png"
   },
   {
-    "name": "Four of ♦",
-    "imgLink": "./images/cards/4_of_diamonds.png",
-    "card": "4 ♦"
+    "number": "4",
+    "suit": "♦",
+    "img": "/images/cards/4_of_diamonds.png"
   },
   {
-    "name": "Four of ♥",
-    "imgLink": "./images/cards/4_of_hearts.png",
-    "card": "4 ♥"
+    "number": "4",
+    "suit": "♥",
+    "img": "/images/cards/4_of_hearts.png"
   },
   {
-    "name": "Four of ♠",
-    "imgLink": "./images/cards/4_of_spades.png",
-    "card": "4 ♠"
+    "number": "4",
+    "suit": "♠",
+    "img": "/images/cards/4_of_spades.png"
   },
   {
-    "name": "Four of ♣",
-    "imgLink": "./images/cards/4_of_clubs.png",
-    "card": "4 ♣"
+    "number": "4",
+    "suit": "♣",
+    "img": "/images/cards/4_of_clubs.png"
   },
   {
-    "name": "Five of ♦",
-    "imgLink": "./images/cards/5_of_diamonds.png",
-    "card": "5 ♦"
+    "number": "5",
+    "suit": "♦",
+    "img": "/images/cards/5_of_diamonds.png"
   },
   {
-    "name": "Five of ♥",
-    "imgLink": "../cards/5_of_hearts.png",
-    "card": "5 ♥"
+    "number": "5",
+    "suit": "♥",
+    "img": "/cards/5_of_hearts.png"
   },
   {
-    "name": "Five of ♠",
-    "imgLink": "./images/cards/5_of_spades.png",
-    "card": "5 ♠"
+    "number": "Five of ♠",
+    "suit": "♠",
+    "img": "/images/cards/5_of_spades.png"
   },
   {
-    "name": "Five of ♣",
-    "imgLink": "./images/cards/5_of_clubs.png",
-    "card": "5 ♣"
+    "number": "5",
+    "suit": "♣",
+    "img": "/images/cards/5_of_clubs.png"
   },
   {
-    "name": "Six of ♦",
-    "imgLink": "./images/cards/6_of_diamonds.png",
-    "card": "6 ♦"
+    "number": "6",
+    "suit": "♦",
+    "img": "/images/cards/6_of_diamonds.png"
   },
   {
-    "name": "Six of ♥",
-    "imgLink": "./images/cards/6_of_hearts.png",
-    "card": "6 ♥"
+    "number": "6",
+    "suit": "♥",
+    "img": "/images/cards/6_of_hearts.png"
   },
   {
-    "name": "Six of ♠",
-    "imgLink": "./images/cards/6_of_spades.png",
-    "card": "6 ♠"
+    "number": "6",
+    "suit": "♠",
+    "img": "/images/cards/6_of_spades.png"
   },
   {
-    "name": "Six of ♣",
-    "imgLink": "./images/cards/6_of_clubs.png",
-    "card": "6 ♣"
+    "number": "6",
+    "suit": "♣",
+    "img": "/images/cards/6_of_clubs.png"
   },
   {
-    "name": "Seven of ♦",
-    "imgLink": "./images/cards/7_of_diamonds.png",
-    "card": "7 ♦"
+    "number": "7",
+    "suit": "♦",
+    "img": "/images/cards/7_of_diamonds.png"
   },
   {
-    "name": "Seven of ♥",
-    "imgLink": "./images/cards/7_of_hearts.png",
-    "card": "7 ♥"
+    "number": "7",
+    "suit": "♥",
+    "img": "/images/cards/7_of_hearts.png"
   },
   {
-    "name": "Seven of ♠",
-    "imgLink": "./images/cards/7_of_spades.png",
-    "card": "7 ♠"
+    "number": "7",
+    "suit": "♠",
+    "img": "/images/cards/7_of_spades.png"
   },
   {
-    "name": "Seven of ♣",
-    "imgLink": "./images/cards/7_of_clubs.png",
-    "card": "7 ♣"
+    "number": "7",
+    "suit": "♣",
+    "img": "/images/cards/7_of_clubs.png"
   },
   {
-    "name": "Eight of ♦",
-    "imgLink": "./images/cards/8_of_diamonds.png",
-    "card": "8 ♦"
+    "number": "8",
+    "suit": "♦",
+    "img": "/images/cards/8_of_diamonds.png"
   },
   {
-    "name": "Eight of ♥",
-    "imgLink": "../cards/8_of_hearts.png",
-    "card": "8 ♥"
+    "number": "8",
+    "suit": "♥",
+    "img": "/cards/8_of_hearts.png"
   },
   {
-    "name": "Eight of ♠",
-    "imgLink": "./images/cards/8_of_spades.png",
-    "card": "8 ♠"
+    "number": "8",
+    "suit": "♠",
+    "img": "/images/cards/8_of_spades.png"
   },
   {
-    "name": "Eight of ♣",
-    "imgLink": "./images/cards/8_of_clubs.png",
-    "card": "8 ♣"
+    "number": "8",
+    "suit": "♣",
+    "img": "/images/cards/8_of_clubs.png"
   },
   {
-    "name": "Nine of ♦",
-    "imgLink": "./images/cards/9_of_diamonds.png",
-    "card": "9 ♦"
+    "number": "9",
+    "suit": "♦",
+    "img": "/images/cards/9_of_diamonds.png"
   },
   {
-    "name": "Nine of ♥",
-    "imgLink": "./images/cards/9_of_hearts.png",
-    "card": "9 ♥"
+    "number": "9",
+    "suit": "♥",
+    "img": "/images/cards/9_of_hearts.png"
   },
   {
-    "name": "Nine of ♠",
-    "imgLink": "./images/cards/9_of_spades.png",
-    "card": "9 ♠"
+    "number": "9",
+    "suit": "♠",
+    "img": "/images/cards/9_of_spades.png"
   },
   {
-    "name": "Nine of ♣",
-    "imgLink": "./images/cards/9_of_clubs.png",
-    "card": "9 ♣"
+    "number": "9",
+    "suit": "♣",
+    "img": "/images/cards/9_of_clubs.png"
   },
   {
-    "name": "Ten of ♦",
-    "imgLink": "./images/cards/10_of_diamonds.png",
-    "card": "10 ♦"
+    "number": "Ten of ♦",
+    "suit": "♦",
+    "img": "/images/cards/10_of_diamonds.png"
   },
   {
-    "name": "Ten of ♥",
-    "imgLink": "./images/cards/ten_of_hearts.png",
-    "card": "10 ♥"
+    "number": "10",
+    "suit": "♥",
+    "img": "/images/cards/ten_of_hearts.png"
   },
   {
-    "name": "Ten of ♠",
-    "imgLink": "./images/cards/10_of_spades.png",
-    "card": "10 ♠"
+    "number": "10",
+    "suit": "♠",
+    "img": "/images/cards/10_of_spades.png"
   },
   {
-    "name": "Ten of ♣",
-    "imgLink": "./images/cards/10_of_clubs.png",
-    "card": "10 ♣"
+    "number": "10",
+    "suit": "♣",
+    "img": "/images/cards/10_of_clubs.png"
   },
   {
-    "name": "Jack of ♦",
-    "imgLink": "./images/cards/jack_of_diamonds.png",
-    "card": "J ♦"
+    "number": "J",
+    "suit": "♦",
+    "img": "/images/cards/jack_of_diamonds.png"
   },
   {
-    "name": "Jack of ♥",
-    "imgLink": "./images/cards/jack_of_hearts.png",
-    "card": "J ♥"
+    "number": "J",
+    "suit": "♥",
+    "img": "/images/cards/jack_of_hearts.png"
   },
   {
-    "name": "Jack of ♠",
-    "imgLink": "./images/cards/jack_of_spades.png",
-    "card": "J ♠"
+    "number": "J",
+    "suit": "♠",
+    "img": "/images/cards/jack_of_spades.png"
   },
   {
-    "name": "Jack of ♣",
-    "imgLink": "./images/cards/jack_of_clubs.png",
-    "card": "J ♣"
+    "number": "J",
+    "suit": "♣",
+    "img": "/images/cards/jack_of_clubs.png"
   },
   {
-    "name": "Queen of ♦",
-    "imgLink": "./images/cards/queen_of_diamonds.png",
-    "card": "Q ♦"
+    "number": "Q",
+    "suit": "♦",
+    "img": "/images/cards/queen_of_diamonds.png"
   },
   {
-    "name": "Queen of ♥",
-    "imgLink": "./images/cards/queen_of_hearts.png",
-    "card": "Q ♥"
+    "number": "Q",
+    "suit": "♥",
+    "img": "/images/cards/queen_of_hearts.png"
   },
   {
-    "name": "Queen of ♠",
-    "imgLink": "./images/cards/queen_of_spades.png",
-    "card": "Q ♠"
+    "number": "Q",
+    "suit": "♠",
+    "img": "/images/cards/queen_of_spades.png"
   },
   {
-    "name": "Queen of ♣",
-    "imgLink": "./images/cards/queen_of_clubs.png",
-    "card": "Q ♣"
+    "number": "Q",
+    "suit": "♣",
+    "img": "/images/cards/queen_of_clubs.png"
   },
   {
-    "name": "King of ♦",
-    "imgLink": "./images/cards/king_of_diamonds.png",
-    "card": "K ♦"
+    "number": "K",
+    "suit": "♦",
+    "img": "/images/cards/king_of_diamonds.png"
   },
   {
-    "name": "King of ♥",
-    "imgLink": "./images/cards/king_of_hearts.png",
-    "card": "K ♥"
+    "number": "K",
+    "suit": "♥",
+    "img": "/images/cards/king_of_hearts.png"
   },
   {
-    "name": "King of ♠",
-    "imgLink": "./images/cards/king_of_spades.png",
-    "card": "K ♠"
+    "number": "K",
+    "suit": "♠",
+    "img": "/images/cards/king_of_spades.png"
   },
   {
-    "name": "King of ♣",
-    "imgLink": "./images/cards/king_of_clubs.png",
-    "card": "K ♣"
+    "number": "K",
+    "suit": "♣",
+    "img": "/images/cards/king_of_clubs.png"
   }
 ]

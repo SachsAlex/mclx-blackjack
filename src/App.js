@@ -29,7 +29,7 @@ class App extends React.Component {
         deck.push({ number: cards[i], suit: suits[j] });
       }
     }
-    return deck;
+    return data;
   }
 
   dealCards(deck) {
@@ -268,7 +268,14 @@ class App extends React.Component {
           <table className="cards">
             <tr>
               {this.state.dealer.cards.map((card, i) => {
-                return <Card key={i} number={card.number} suit={card.suit} />;
+                return (
+                  <Card
+                    key={i}
+                    number={card.number}
+                    suit={card.suit}
+                    imgSource={card.img}
+                  />
+                );
               })}
             </tr>
           </table>
@@ -278,7 +285,14 @@ class App extends React.Component {
           <table className="cards">
             <tr>
               {this.state.player.cards.map((card, i) => {
-                return <Card key={i} number={card.number} suit={card.suit} />;
+                return (
+                  <Card
+                    key={i}
+                    number={card.number}
+                    suit={card.suit}
+                    imgSource={card.img}
+                  />
+                );
               })}
             </tr>
           </table>
@@ -341,12 +355,13 @@ class App extends React.Component {
   }
 }
 
-const Card = ({ number, suit }) => {
+const Card = ({ number, suit, imgSource }) => {
   const combo = number ? `${number}${suit}` : null;
   const color = suit === "♦" || suit === "♥" ? "card-red" : "card";
 
   return (
-    <td>
+    <td className="cardcontainer">
+      <img src={imgSource} className="cardbackground" alt="card"></img>
       <div className={color}>{combo}</div>
     </td>
   );

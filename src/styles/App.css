@@ -6,7 +6,7 @@ body {
 }
 
 .background {
-  background-image: url("../mediathek/images/background/BlackJack01.webp");
+  background-image: url("../../public/images/background/BlackJack01.webp");
   background-position: top;
   background-size: 100vw 100vh;
   height: 100vh;
@@ -44,7 +44,7 @@ p {
 .card-red {
   height: 135px;
   width: 90px;
-  background-image: url("../mediathek/images/background/Carbon-Kartendesign-vertb1.png");
+  background-image: url("../../public/images/background/Carbon-Kartendesign-vertb1.png");
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 5px;
@@ -53,16 +53,14 @@ p {
   align-items: center;
 }
 
-.back-card {
-  height: 135px;
-  width: 90px;
-  background-image: url("../mediathek/images/cards/backside.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.cardbackground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.cardcontainer {
+  position: relative;
 }
 
 .card-red {
