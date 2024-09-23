@@ -21,6 +21,7 @@ class App extends React.Component {
   }
 
   generateDeck() {
+    // const [deckData, setDeckData] = useState(data)
     const cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
     const suits = ["♦", "♣", "♥", "♠"];
     const deck = [];
@@ -29,7 +30,7 @@ class App extends React.Component {
         deck.push({ number: cards[i], suit: suits[j] });
       }
     }
-    return data;
+    return data; //data ist endlich, deck wird neu generiert
   }
 
   dealCards(deck) {

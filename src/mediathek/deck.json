@@ -87,7 +87,7 @@
   {
     "number": "5",
     "suit": "♥",
-    "img": "/cards/5_of_hearts.png"
+    "img": "/images/cards/5_of_hearts.png"
   },
   {
     "number": "5",
@@ -147,7 +147,7 @@
   {
     "number": "8",
     "suit": "♥",
-    "img": "/cards/8_of_hearts.png"
+    "img": "/images/cards/8_of_hearts.png"
   },
   {
     "number": "8",
@@ -187,7 +187,7 @@
   {
     "number": "10",
     "suit": "♥",
-    "img": "/images/cards/ten_of_hearts.png"
+    "img": "/images/cards/10_of_hearts.png"
   },
   {
     "number": "10",
@@ -202,61 +202,61 @@
   {
     "number": "J",
     "suit": "♦",
-    "img": "/images/cards/jack_of_diamonds.png"
+    "img": "/images/cards/jack_of_diamonds2.png"
   },
   {
     "number": "J",
     "suit": "♥",
-    "img": "/images/cards/jack_of_hearts.png"
+    "img": "/images/cards/jack_of_hearts2.png"
   },
   {
     "number": "J",
     "suit": "♠",
-    "img": "/images/cards/jack_of_spades.png"
+    "img": "/images/cards/jack_of_spades2.png"
   },
   {
     "number": "J",
     "suit": "♣",
-    "img": "/images/cards/jack_of_clubs.png"
+    "img": "/images/cards/jack_of_clubs2.png"
   },
   {
     "number": "Q",
     "suit": "♦",
-    "img": "/images/cards/queen_of_diamonds.png"
+    "img": "/images/cards/queen_of_diamonds2.png"
   },
   {
     "number": "Q",
     "suit": "♥",
-    "img": "/images/cards/queen_of_hearts.png"
+    "img": "/images/cards/queen_of_hearts2.png"
   },
   {
     "number": "Q",
     "suit": "♠",
-    "img": "/images/cards/queen_of_spades.png"
+    "img": "/images/cards/queen_of_spades2.png"
   },
   {
     "number": "Q",
     "suit": "♣",
-    "img": "/images/cards/queen_of_clubs.png"
+    "img": "/images/cards/queen_of_clubs2.png"
   },
   {
     "number": "K",
     "suit": "♦",
-    "img": "/images/cards/king_of_diamonds.png"
+    "img": "/images/cards/king_of_diamonds2.png"
   },
   {
     "number": "K",
     "suit": "♥",
-    "img": "/images/cards/king_of_hearts.png"
+    "img": "/images/cards/king_of_hearts2.png"
   },
   {
     "number": "K",
     "suit": "♠",
-    "img": "/images/cards/king_of_spades.png"
+    "img": "/images/cards/king_of_spades2.png"
   },
   {
     "number": "K",
     "suit": "♣",
-    "img": "/images/cards/king_of_clubs.png"
+    "img": "/images/cards/king_of_clubs2.png"
   }
 ]
