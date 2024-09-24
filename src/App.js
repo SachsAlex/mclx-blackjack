@@ -4,12 +4,13 @@ import "./styles/Globals.css";
 import Button from "./components/button/Button";
 import Card from "./components/card/Card";
 import data from "./mediathek/deck.json";
+import backside from "./mediathek/backside.json";
 
 const App = () => {
   const [deck, setDeck] = useState([]);
   const [dealer, setDealer] = useState(null);
   const [player, setPlayer] = useState(null);
-  const [wallet, setWallet] = useState(100);
+  const [score, setScore] = useState(100);
   const [inputValue, setInputValue] = useState("");
   const [currentBet, setCurrentBet] = useState(null);
   const [gameOver, setGameOver] = useState(false);
@@ -30,8 +31,9 @@ const App = () => {
     const playerCard1 = getRandomCard(mdeck);
     const dealerCard1 = getRandomCard(playerCard1.updatedDeck);
     const playerCard2 = getRandomCard(dealerCard1.updatedDeck);
+    // const dealerCard2 = getCardBackside();
     const playerStartingHand = [playerCard1.randomCard, playerCard2.randomCard];
-    const dealerStartingHand = [dealerCard1.randomCard, {}];
+    const dealerStartingHand = [dealerCard1.randomCard, {}]; //dealerCard2
     const player = {
       cards: playerStartingHand,
       count: getCount(playerStartingHand),
@@ -48,7 +50,7 @@ const App = () => {
     console.log("Gewollte Karten: ", JSON.stringify(data));
     console.log("Array Inhalt: ", data, deck);
     if (type === "continue") {
-      if (wallet > 0) {
+      if (score > 0) {
         console.log("InitialData: ", initalData);
         const deckToUse = deck.length < 10 ? generateDeck() : deck;
         const { updatedDeck, player, dealer } = dealCards(deckToUse);
@@ -62,12 +64,13 @@ const App = () => {
         setMessage("Game over! You are broke! Please start a new game.");
       }
     } else {
+      console.log("Backside? :", getCardBackside, backside);
       const newDeck = generateDeck();
       const { updatedDeck, player, dealer } = dealCards(newDeck);
       setDeck(updatedDeck);
       setDealer(dealer);
       setPlayer(player);
-      setWallet(100);
+      setScore(100);
       setInputValue("");
       setCurrentBet(null);
       setGameOver(false);
@@ -83,14 +86,18 @@ const App = () => {
     return { randomCard, updatedDeck };
   };
 
+  const getCardBackside = () => {
+    return backside[0];
+  };
+
   const placeBet = () => {
     const bet = inputValue;
-    if (bet > wallet) {
+    if (bet > score) {
       setMessage("Insufficient funds to bet that amount.");
     } else if (bet % 1 !== 0) {
       setMessage("Please bet whole numbers only.");
     } else {
-      setWallet(wallet - bet);
+      setScore(score - bet);
       setInputValue("");
       setCurrentBet(bet);
     }
@@ -136,25 +143,25 @@ const App = () => {
         if (newDealer.count > 21) {
           setDeck(updatedDeck);
           setDealer(newDealer);
-          setWallet(wallet + currentBet * 2);
+          setScore(score + currentBet * 2);
           setGameOver(true);
           setMessage("Dealer bust! You win!");
         } else {
           const winner = getWinner(newDealer, player);
-          let newWallet = wallet;
+          let newScore = score;
           let resultMessage;
           if (winner === "dealer") {
             resultMessage = "Dealer wins...";
           } else if (winner === "player") {
-            newWallet += currentBet * 2;
+            newScore += currentBet * 2;
             resultMessage = "You win!";
           } else {
-            newWallet += currentBet;
+            newScore += currentBet;
             resultMessage = "Push.";
           }
           setDeck(updatedDeck);
           setDealer(newDealer);
-          setWallet(newWallet);
+          setScore(newScore);
           setGameOver(true);
           setMessage(resultMessage);
         }
@@ -239,7 +246,7 @@ const App = () => {
           <Button onClick={hit} text="Hit" />
           <Button onClick={stand} text="Stand" />
         </div>
-        <p className="font">Wallet: ${wallet}</p>
+        <p className="font">Score: {score}</p>
         {!currentBet ? (
           <div className="input-bet">
             <form>

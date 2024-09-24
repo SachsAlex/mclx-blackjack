@@ -1,5 +1,4 @@
-.card,
-.card-red {
+.card {
   height: 135px;
   width: 90px;
   background-image: url("../../../public/images/background/Carbon-Kartendesign-vertb1.png");
@@ -19,10 +18,6 @@
 
 .cardcontainer {
   position: relative;
-}
-
-.card-red {
-  color: red;
 }
 
 .cards {
