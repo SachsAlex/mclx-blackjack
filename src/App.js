@@ -215,12 +215,7 @@ const App = () => {
           <tbody>
             <tr>
               {dealer?.cards.map((card, i) => (
-                <Card
-                  key={i}
-                  number={card.number}
-                  suit={card.suit}
-                  imgSource={card.img}
-                />
+                <Card key={i} imgSource={card.img || backside.img} />
               ))}
             </tr>
           </tbody>
@@ -231,12 +226,7 @@ const App = () => {
           <tbody>
             <tr>
               {player?.cards.map((card, i) => (
-                <Card
-                  key={i}
-                  number={card.number}
-                  suit={card.suit}
-                  imgSource={card.img}
-                />
+                <Card key={i} imgSource={card.img} />
               ))}
             </tr>
           </tbody>
