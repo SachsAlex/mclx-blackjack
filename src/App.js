@@ -1,155 +1,186 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./styles/App.css";
 import "./styles/Globals.css";
 import Button from "./components/button/Button";
+import Card from "./components/card/Card";
 import data from "./mediathek/deck.json";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+const App = () => {
+  const [deck, setDeck] = useState([]);
+  const [dealer, setDealer] = useState(null);
+  const [player, setPlayer] = useState(null);
+  const [wallet, setWallet] = useState(100);
+  const [inputValue, setInputValue] = useState("");
+  const [currentBet, setCurrentBet] = useState(null);
+  const [gameOver, setGameOver] = useState(false);
+  const [message, setMessage] = useState(null);
+  const [initalData] = useState([...data]);
 
-    this.state = {
-      deck: [],
-      dealer: null,
-      player: null,
-      wallet: 0,
-      inputValue: "",
-      currentBet: null,
-      gameOver: false,
-      message: null,
-    };
-  }
+  useEffect(() => {
+    startNewGame();
+  }, []);
 
-  generateDeck() {
-    // const [deckData, setDeckData] = useState(data)
-    const cards = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
-    const suits = ["♦", "♣", "♥", "♠"];
-    const deck = [];
-    for (let i = 0; i < cards.length; i++) {
-      for (let j = 0; j < suits.length; j++) {
-        deck.push({ number: cards[i], suit: suits[j] });
-      }
-    }
-    return data; //data ist endlich, deck wird neu generiert
-  }
+  const generateDeck = () => {
+    return [...initalData];
+    // Kopiert Elemente des Original Arrays
+    // Keine simple Referenz!
+  };
 
-  dealCards(deck) {
-    const playerCard1 = this.getRandomCard(deck);
-    const dealerCard1 = this.getRandomCard(playerCard1.updatedDeck);
-    const playerCard2 = this.getRandomCard(dealerCard1.updatedDeck);
+  const dealCards = mdeck => {
+    const playerCard1 = getRandomCard(mdeck);
+    const dealerCard1 = getRandomCard(playerCard1.updatedDeck);
+    const playerCard2 = getRandomCard(dealerCard1.updatedDeck);
     const playerStartingHand = [playerCard1.randomCard, playerCard2.randomCard];
     const dealerStartingHand = [dealerCard1.randomCard, {}];
-
     const player = {
       cards: playerStartingHand,
-      count: this.getCount(playerStartingHand),
+      count: getCount(playerStartingHand),
     };
     const dealer = {
       cards: dealerStartingHand,
-      count: this.getCount(dealerStartingHand),
+      count: getCount(dealerStartingHand),
     };
-
+    console.log("InitialData: ", initalData, playerCard2.updatedDeck);
     return { updatedDeck: playerCard2.updatedDeck, player, dealer };
-  }
+  };
 
-  startNewGame(type) {
+  const startNewGame = (type = "new") => {
     console.log("Gewollte Karten: ", JSON.stringify(data));
+    console.log("Array Inhalt: ", data, deck);
     if (type === "continue") {
-      if (this.state.wallet > 0) {
-        const deck =
-          this.state.deck.length < 10 ? this.generateDeck() : this.state.deck;
-        const { updatedDeck, player, dealer } = this.dealCards(deck);
-
-        this.setState({
-          deck: updatedDeck,
-          dealer,
-          player,
-          currentBet: null,
-          gameOver: false,
-          message: null,
-        });
+      if (wallet > 0) {
+        console.log("InitialData: ", initalData);
+        const deckToUse = deck.length < 10 ? generateDeck() : deck;
+        const { updatedDeck, player, dealer } = dealCards(deckToUse);
+        setDeck(updatedDeck);
+        setDealer(dealer);
+        setPlayer(player);
+        setCurrentBet(null);
+        setGameOver(false);
+        setMessage(null);
       } else {
-        this.setState({
-          message: "Game over! You are broke! Please start a new game.",
-        });
+        setMessage("Game over! You are broke! Please start a new game.");
       }
     } else {
-      const deck = this.generateDeck();
-      const { updatedDeck, player, dealer } = this.dealCards(deck);
-
-      this.setState({
-        deck: updatedDeck,
-        dealer,
-        player,
-        wallet: 100,
-        inputValue: "",
-        currentBet: null,
-        gameOver: false,
-        message: null,
-      });
+      const newDeck = generateDeck();
+      const { updatedDeck, player, dealer } = dealCards(newDeck);
+      setDeck(updatedDeck);
+      setDealer(dealer);
+      setPlayer(player);
+      setWallet(100);
+      setInputValue("");
+      setCurrentBet(null);
+      setGameOver(false);
+      setMessage(null);
     }
-  }
+  };
 
-  getRandomCard(deck) {
-    const updatedDeck = deck;
+  const getRandomCard = mdeck => {
+    const updatedDeck = mdeck;
     const randomIndex = Math.floor(Math.random() * updatedDeck.length);
     const randomCard = updatedDeck[randomIndex];
     updatedDeck.splice(randomIndex, 1);
     return { randomCard, updatedDeck };
-  }
+  };
 
-  placeBet() {
-    const currentBet = this.state.inputValue;
-
-    if (currentBet > this.state.wallet) {
-      this.setState({ message: "Insufficient funds to bet that amount." });
-    } else if (currentBet % 1 !== 0) {
-      this.setState({ message: "Please bet whole numbers only." });
+  const placeBet = () => {
+    const bet = inputValue;
+    if (bet > wallet) {
+      setMessage("Insufficient funds to bet that amount.");
+    } else if (bet % 1 !== 0) {
+      setMessage("Please bet whole numbers only.");
     } else {
-      // Deduct current bet from wallet
-      const wallet = this.state.wallet - currentBet;
-      this.setState({ wallet, inputValue: "", currentBet });
+      setWallet(wallet - bet);
+      setInputValue("");
+      setCurrentBet(bet);
     }
-  }
+  };
 
-  hit() {
-    if (!this.state.gameOver) {
-      if (this.state.currentBet) {
-        const { randomCard, updatedDeck } = this.getRandomCard(this.state.deck);
-        const player = this.state.player;
-        player.cards.push(randomCard);
-        player.count = this.getCount(player.cards);
-
-        if (player.count > 21) {
-          this.setState({ player, gameOver: true, message: "BUST!" });
+  const hit = () => {
+    if (!gameOver) {
+      if (currentBet) {
+        const { randomCard, updatedDeck } = getRandomCard(deck);
+        const newPlayer = { ...player };
+        newPlayer.cards.push(randomCard);
+        newPlayer.count = getCount(newPlayer.cards);
+        if (newPlayer.count > 21) {
+          setPlayer(newPlayer);
+          setGameOver(true);
+          setMessage("BUST!");
         } else {
-          this.setState({ deck: updatedDeck, player });
+          setDeck(updatedDeck);
+          setPlayer(newPlayer);
         }
       } else {
-        this.setState({ message: "Please place bet." });
+        setMessage("Please place bet.");
       }
     } else {
-      this.setState({ message: "Game over! Please start a new game." });
+      setMessage("Game over! Please start a new game.");
     }
-  }
+  };
 
-  dealerDraw(dealer, deck) {
-    const { randomCard, updatedDeck } = this.getRandomCard(deck);
+  const stand = () => {
+    if (!gameOver) {
+      if (currentBet) {
+        let updatedDeck = [...deck];
+        let newDealer = { ...dealer };
+        newDealer.cards.pop();
+        newDealer.cards.push(getRandomCard(updatedDeck).randomCard);
+        newDealer.count = getCount(newDealer.cards);
+        // Draw cards until dealer's count is 17 or more
+        while (newDealer.count < 17) {
+          const draw = dealerDraw(newDealer, updatedDeck);
+          newDealer = draw.dealer;
+          updatedDeck = draw.updatedDeck;
+        }
+        if (newDealer.count > 21) {
+          setDeck(updatedDeck);
+          setDealer(newDealer);
+          setWallet(wallet + currentBet * 2);
+          setGameOver(true);
+          setMessage("Dealer bust! You win!");
+        } else {
+          const winner = getWinner(newDealer, player);
+          let newWallet = wallet;
+          let resultMessage;
+          if (winner === "dealer") {
+            resultMessage = "Dealer wins...";
+          } else if (winner === "player") {
+            newWallet += currentBet * 2;
+            resultMessage = "You win!";
+          } else {
+            newWallet += currentBet;
+            resultMessage = "Push.";
+          }
+          setDeck(updatedDeck);
+          setDealer(newDealer);
+          setWallet(newWallet);
+          setGameOver(true);
+          setMessage(resultMessage);
+        }
+      } else {
+        setMessage("Please place bet.");
+      }
+    } else {
+      setMessage("Game over! Please start a new game.");
+    }
+  };
+
+  const dealerDraw = (dealer, mdeck) => {
+    const { randomCard, updatedDeck } = getRandomCard(mdeck);
     dealer.cards.push(randomCard);
-    dealer.count = this.getCount(dealer.cards);
+    dealer.count = getCount(dealer.cards);
     return { dealer, updatedDeck };
-  }
+  };
 
-  getCount(cards) {
+  const getCount = cards => {
     const rearranged = [];
     cards.forEach(card => {
       if (card.number === "A") {
         rearranged.push(card);
-      } else if (card.number) {
+      } else {
         rearranged.unshift(card);
       }
-
-      // (card.number === 'A') ? rearranged.push(card) : rearranged.unshift(card);
     });
 
     return rearranged.reduce((total, card) => {
@@ -158,221 +189,79 @@ class App extends React.Component {
       } else if (card.number === "A") {
         return total + 11 <= 21 ? total + 11 : total + 1;
       } else {
-        const cardValue = Number(card.number);
-        return total + cardValue;
+        return total + Number(card.number);
       }
     }, 0);
-  }
+  };
 
-  stand() {
-    if (!this.state.gameOver) {
-      if (this.state.currentBet) {
-        // Show dealer's 2nd card
-        const randomCard = this.getRandomCard(this.state.deck);
-        let deck = randomCard.updatedDeck;
-        let dealer = this.state.dealer;
-        dealer.cards.pop();
-        dealer.cards.push(randomCard.randomCard);
-        dealer.count = this.getCount(dealer.cards);
-
-        // Keep drawing cards until count is 17 or more
-        while (dealer.count < 17) {
-          const draw = this.dealerDraw(dealer, deck);
-          dealer = draw.dealer;
-          deck = draw.updatedDeck;
-        }
-
-        if (dealer.count > 21) {
-          this.setState({
-            deck,
-            dealer,
-            wallet: this.state.wallet + this.state.currentBet * 2,
-            gameOver: true,
-            message: "Dealer bust! You win!",
-          });
-        } else {
-          const winner = this.getWinner(dealer, this.state.player);
-          let wallet = this.state.wallet;
-          let message;
-
-          if (winner === "dealer") {
-            message = "Dealer wins...";
-          } else if (winner === "player") {
-            wallet += this.state.currentBet * 2;
-            message = "You win!";
-          } else {
-            wallet += this.state.currentBet;
-            message = "Push.";
-          }
-
-          this.setState({
-            deck,
-            dealer,
-            wallet,
-            gameOver: true,
-            message,
-          });
-        }
-      } else {
-        this.setState({ message: "Please place bet." });
-      }
-    } else {
-      this.setState({ message: "Game over! Please start a new game." });
-    }
-  }
-
-  getWinner(dealer, player) {
-    if (dealer.count > player.count) {
-      return "dealer";
-    } else if (dealer.count < player.count) {
-      return "player";
-    } else {
-      return "push";
-    }
-  }
-
-  inputChange(e) {
-    const inputValue = +e.target.value;
-    this.setState({ inputValue });
-  }
-
-  handleKeyDown(e) {
-    const enter = 13;
-    console.log(e.keyCode);
-
-    if (e.keyCode === enter) {
-      this.placeBet();
-    }
-  }
-
-  componentWillMount() {
-    this.startNewGame();
-    const body = document.querySelector("body");
-    body.addEventListener("keydown", this.handleKeyDown.bind(this));
-  }
-
-  render() {
-    let dealerCount;
-    const card1 = this.state.dealer.cards[0].number;
-    const card2 = this.state.dealer.cards[1].number;
-    if (card2) {
-      dealerCount = this.state.dealer.count;
-    } else {
-      if (card1 === "J" || card1 === "Q" || card1 === "K") {
-        dealerCount = 10;
-      } else if (card1 === "A") {
-        dealerCount = 11;
-      } else {
-        dealerCount = card1;
-      }
-    }
-
-    return (
-      <div className="background">
-        <div>
-          <p className="font">Dealer's Hand ({this.state.dealer.count})</p>
-          <table className="cards">
-            <tr>
-              {this.state.dealer.cards.map((card, i) => {
-                return (
-                  <Card
-                    key={i}
-                    number={card.number}
-                    suit={card.suit}
-                    imgSource={card.img}
-                  />
-                );
-              })}
-            </tr>
-          </table>
-
-          <p>{this.state.message}</p>
-          <p className="font">Your Hand ({this.state.player.count})</p>
-          <table className="cards">
-            <tr>
-              {this.state.player.cards.map((card, i) => {
-                return (
-                  <Card
-                    key={i}
-                    number={card.number}
-                    suit={card.suit}
-                    imgSource={card.img}
-                  />
-                );
-              })}
-            </tr>
-          </table>
-
-          <div className="buttons">
-            <Button
-              onClick={() => {
-                this.startNewGame();
-              }}
-              text={"New Game"}
-            />
-            <Button
-              onClick={() => {
-                this.hit();
-              }}
-              text={"Hit"}
-            />
-            <Button
-              onClick={() => {
-                this.stand();
-              }}
-              text={"Stand"}
-            />
-          </div>
-
-          <p className="font">Wallet: ${this.state.wallet}</p>
-          {!this.state.currentBet ? (
-            <div className="input-bet">
-              <form>
-                <input
-                  type="text"
-                  name="bet"
-                  placeholder=""
-                  value={this.state.inputValue}
-                  onChange={this.inputChange.bind(this)}
-                />
-              </form>
-              <Button
-                onClick={() => {
-                  this.placeBet();
-                }}
-                text={"Place Bet"}
-              />
-            </div>
-          ) : null}
-          {this.state.gameOver ? (
-            <div className="buttons">
-              <Button
-                onClick={() => {
-                  this.startNewGame("continue");
-                }}
-                text={"Continue"}
-                Continue
-              />
-            </div>
-          ) : null}
-        </div>
-      </div>
-    );
-  }
-}
-
-const Card = ({ number, suit, imgSource }) => {
-  const combo = number ? `${number}${suit}` : null;
-  const color = suit === "♦" || suit === "♥" ? "card-red" : "card";
+  const getWinner = (dealer, player) => {
+    if (dealer.count > player.count) return "dealer";
+    if (dealer.count < player.count) return "player";
+    return "push";
+  };
 
   return (
-    <td className="cardcontainer">
-      <img src={imgSource} className="cardbackground" alt="card"></img>
-      <div className={color}>{combo}</div>
-    </td>
+    <div className="background">
+      <div>
+        <p className="font">Dealer's Hand ({dealer?.count || 0})</p>
+        <table className="cards">
+          <tbody>
+            <tr>
+              {dealer?.cards.map((card, i) => (
+                <Card
+                  key={i}
+                  number={card.number}
+                  suit={card.suit}
+                  imgSource={card.img}
+                />
+              ))}
+            </tr>
+          </tbody>
+        </table>
+        <p>{message}</p>
+        <p className="font">Your Hand ({player?.count || 0})</p>
+        <table className="cards">
+          <tbody>
+            <tr>
+              {player?.cards.map((card, i) => (
+                <Card
+                  key={i}
+                  number={card.number}
+                  suit={card.suit}
+                  imgSource={card.img}
+                />
+              ))}
+            </tr>
+          </tbody>
+        </table>
+        <div className="buttons">
+          <Button onClick={startNewGame} text="New Game" />
+          <Button onClick={hit} text="Hit" />
+          <Button onClick={stand} text="Stand" />
+        </div>
+        <p className="font">Wallet: ${wallet}</p>
+        {!currentBet ? (
+          <div className="input-bet">
+            <form>
+              <input
+                type="text"
+                name="bet"
+                placeholder=""
+                value={inputValue}
+                onChange={e => setInputValue(+e.target.value)}
+              />
+            </form>
+            <Button onClick={placeBet} text="Place Bet" />
+          </div>
+        ) : null}
+        {gameOver && (
+          <div className="buttons">
+            <Button onClick={() => startNewGame("continue")} text="Continue" />
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 
 export default App;
-
-// source https://codepen.io/jeffleu/pen/MbVGmM

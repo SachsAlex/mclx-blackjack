@@ -1,0 +1,30 @@
+.card,
+.card-red {
+  height: 135px;
+  width: 90px;
+  background-image: url("../../../public/images/background/Carbon-Kartendesign-vertb1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardbackground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.cardcontainer {
+  position: relative;
+}
+
+.card-red {
+  color: red;
+}
+
+.cards {
+  margin: 0 auto;
+}
