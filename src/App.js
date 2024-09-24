@@ -4,7 +4,6 @@ import "./styles/Globals.css";
 import Button from "./components/button/Button";
 import Card from "./components/card/Card";
 import data from "./mediathek/deck.json";
-import backside from "./mediathek/backside.json";
 
 const App = () => {
   const [deck, setDeck] = useState([]);
@@ -31,9 +30,8 @@ const App = () => {
     const playerCard1 = getRandomCard(mdeck);
     const dealerCard1 = getRandomCard(playerCard1.updatedDeck);
     const playerCard2 = getRandomCard(dealerCard1.updatedDeck);
-    // const dealerCard2 = getCardBackside();
     const playerStartingHand = [playerCard1.randomCard, playerCard2.randomCard];
-    const dealerStartingHand = [dealerCard1.randomCard, {}]; //dealerCard2
+    const dealerStartingHand = [dealerCard1.randomCard, { number: 0 }];
     const player = {
       cards: playerStartingHand,
       count: getCount(playerStartingHand),
@@ -43,12 +41,13 @@ const App = () => {
       count: getCount(dealerStartingHand),
     };
     console.log("InitialData: ", initalData, playerCard2.updatedDeck);
+    console.log("Dealer Start Hand: ", dealerStartingHand);
+    console.log("Dealer: ", dealer);
+    console.log("Player: ", player);
     return { updatedDeck: playerCard2.updatedDeck, player, dealer };
   };
 
   const startNewGame = (type = "new") => {
-    console.log("Gewollte Karten: ", JSON.stringify(data));
-    console.log("Array Inhalt: ", data, deck);
     if (type === "continue") {
       if (score > 0) {
         console.log("InitialData: ", initalData);
@@ -64,7 +63,6 @@ const App = () => {
         setMessage("Game over! You are broke! Please start a new game.");
       }
     } else {
-      console.log("Backside? :", getCardBackside, backside);
       const newDeck = generateDeck();
       const { updatedDeck, player, dealer } = dealCards(newDeck);
       setDeck(updatedDeck);
@@ -84,10 +82,6 @@ const App = () => {
     const randomCard = updatedDeck[randomIndex];
     updatedDeck.splice(randomIndex, 1);
     return { randomCard, updatedDeck };
-  };
-
-  const getCardBackside = () => {
-    return backside[0];
   };
 
   const placeBet = () => {
@@ -215,7 +209,7 @@ const App = () => {
           <tbody>
             <tr>
               {dealer?.cards.map((card, i) => (
-                <Card key={i} imgSource={card.img || backside.img} />
+                <Card key={i} imgSource={card.img} />
               ))}
             </tr>
           </tbody>
