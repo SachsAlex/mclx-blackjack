@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Button from "../../button/Button";
 
-const Hit = (
+const Hit = ({
   deck,
   setDeck,
   player,
@@ -12,7 +12,7 @@ const Hit = (
   setGameOver,
   message,
   setMessage,
-) => {
+}) => {
   useEffect(() => {
     handleHit();
   }, []);

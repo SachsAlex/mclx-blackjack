@@ -5,6 +5,8 @@ import Button from "./components/button/Button";
 import Card from "./components/card/Card";
 import data from "./mediathek/deck.json";
 import Stand from "./components/player-choices/stand";
+import NewGame from "./components/player-choices/newGame/NewGame";
+import Hit from "./components/player-choices/hit";
 
 const App = () => {
   const [deck, setDeck] = useState([]);
@@ -98,82 +100,18 @@ const App = () => {
     }
   };
 
-  const hit = () => {
-    if (!gameOver) {
-      if (currentBet) {
-        const { randomCard, updatedDeck } = getRandomCard(deck);
-        const newPlayer = { ...player };
-        newPlayer.cards.push(randomCard);
-        newPlayer.count = getCount(newPlayer.cards);
-        if (newPlayer.count > 21) {
-          setPlayer(newPlayer);
-          setGameOver(true);
-          setMessage("BUST!");
-        } else {
-          setDeck(updatedDeck);
-          setPlayer(newPlayer);
-        }
-      } else {
-        setMessage("Please place bet.");
-      }
-    } else {
-      setMessage("Game over! Please start a new game.");
-    }
-  };
-
-  const stand = () => {
-    if (!gameOver) {
-      if (currentBet) {
-        let updatedDeck = [...deck];
-        let newDealer = { ...dealer };
-        newDealer.cards.pop();
-        newDealer.cards.push(getRandomCard(updatedDeck).randomCard);
-        newDealer.count = getCount(newDealer.cards);
-        // Draw cards until dealer's count is 17 or more
-        while (newDealer.count < 17) {
-          const draw = dealerDraw(newDealer, updatedDeck);
-          newDealer = draw.dealer;
-          updatedDeck = draw.updatedDeck;
-        }
-        if (newDealer.count > 21) {
-          setDeck(updatedDeck);
-          setDealer(newDealer);
-          setScore(score + currentBet * 2);
-          setGameOver(true);
-          setMessage("Dealer bust! You win!");
-        } else {
-          const winner = getWinner(newDealer, player);
-          let newScore = score;
-          let resultMessage;
-          if (winner === "dealer") {
-            resultMessage = "Dealer wins...";
-          } else if (winner === "player") {
-            newScore += currentBet * 2;
-            resultMessage = "You win!";
-          } else {
-            newScore += currentBet;
-            resultMessage = "Push.";
-          }
-          setDeck(updatedDeck);
-          setDealer(newDealer);
-          setScore(newScore);
-          setGameOver(true);
-          setMessage(resultMessage);
-        }
-      } else {
-        setMessage("Please place bet.");
-      }
-    } else {
-      setMessage("Game over! Please start a new game.");
-    }
-  };
-
-  const dealerDraw = (dealer, mdeck) => {
-    const { randomCard, updatedDeck } = getRandomCard(mdeck);
-    dealer.cards.push(randomCard);
-    dealer.count = getCount(dealer.cards);
-    return { dealer, updatedDeck };
-  };
+  // const placeBetChip = () => {
+  //   const bet = chipValue;
+  //   if (bet > score) {
+  //     setMessage("Insufficient funds to bet that amount.");
+  //   } else if (bet % 1 !== 0) {
+  //     setMessage("Please bet whole numbers only.");
+  //   } else {
+  //     setScore(score - bet);
+  //     setInputValue("");
+  //     setCurrentBet(bet);
+  //   }
+  // };
 
   const getCount = cards => {
     const rearranged = [];
@@ -194,12 +132,6 @@ const App = () => {
         return total + Number(card.number);
       }
     }, 0);
-  };
-
-  const getWinner = (dealer, player) => {
-    if (dealer.count > player.count) return "dealer";
-    if (dealer.count < player.count) return "player";
-    return "push";
   };
 
   return (
@@ -227,9 +159,26 @@ const App = () => {
           </tbody>
         </table>
         <div className="buttons">
-          <Button onClick={startNewGame} text="New Game" />
-          <Button onClick={hit} text="Hit" />
-          {/* <Hit
+          <NewGame
+            deck={deck}
+            setDeck={setDeck}
+            dealer={dealer}
+            setDealer={setDealer}
+            player={player}
+            setPlayer={setPlayer}
+            score={score}
+            setScore={setScore}
+            inputValue={inputValue}
+            setInputValue={setInputValue}
+            currentBet={currentBet}
+            setCurrentBet={setCurrentBet}
+            gameOver={gameOver}
+            setGameOver={setGameOver}
+            message={message}
+            setMessage={setMessage}
+            initalData={initalData}
+          />
+          <Hit
             deck={deck}
             setDeck={setDeck}
             player={player}
@@ -240,7 +189,7 @@ const App = () => {
             setGameOver={setGameOver}
             message={message}
             setMessage={setMessage}
-          /> */}
+          />
           <Stand
             deck={deck}
             setDeck={setDeck}
@@ -271,6 +220,7 @@ const App = () => {
               />
             </form>
             <Button onClick={placeBet} text="Place Bet" />
+            {/* <Button onClick={placeBetChip} text="Place Bet" /> */}
           </div>
         ) : null}
         {gameOver && (
