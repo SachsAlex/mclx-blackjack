@@ -1,4 +1,4 @@
-import styles from "./Chip10.module.css";
+import styles from "./ChipAll.module.css";
 
 function ChipAll({ onClick, className }) {
   return (
