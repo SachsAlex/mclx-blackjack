@@ -7,6 +7,7 @@ import data from "./mediathek/deck.json";
 import Stand from "./components/player-choices/stand";
 import NewGame from "./components/player-choices/newGame/NewGame";
 import Hit from "./components/player-choices/hit";
+import Chip5 from "./components/chips/chip5/Chip5";
 
 const App = () => {
   const [deck, setDeck] = useState([]);
@@ -220,7 +221,6 @@ const App = () => {
               />
             </form>
             <Button onClick={placeBet} text="Place Bet" />
-            {/* <Button onClick={placeBetChip} text="Place Bet" /> */}
           </div>
         ) : null}
         {gameOver && (
