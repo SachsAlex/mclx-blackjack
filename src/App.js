@@ -4,6 +4,7 @@ import "./styles/Globals.css";
 import Button from "./components/button/Button";
 import Card from "./components/card/Card";
 import data from "./mediathek/deck.json";
+import Stand from "./components/player-choices/stand";
 
 const App = () => {
   const [deck, setDeck] = useState([]);
@@ -228,7 +229,34 @@ const App = () => {
         <div className="buttons">
           <Button onClick={startNewGame} text="New Game" />
           <Button onClick={hit} text="Hit" />
-          <Button onClick={stand} text="Stand" />
+          {/* <Hit
+            deck={deck}
+            setDeck={setDeck}
+            player={player}
+            setPlayer={setPlayer}
+            currentBet={currentBet}
+            setCurrentBet={setCurrentBet}
+            gameOver={gameOver}
+            setGameOver={setGameOver}
+            message={message}
+            setMessage={setMessage}
+          /> */}
+          <Stand
+            deck={deck}
+            setDeck={setDeck}
+            dealer={dealer}
+            setDealer={setDealer}
+            player={player}
+            setPlayer={setPlayer}
+            score={score}
+            setScore={setScore}
+            currentBet={currentBet}
+            setCurrentBet={setCurrentBet}
+            gameOver={gameOver}
+            setGameOver={setGameOver}
+            message={message}
+            setMessage={setMessage}
+          />
         </div>
         <p className="font">Score: {score}</p>
         {!currentBet ? (

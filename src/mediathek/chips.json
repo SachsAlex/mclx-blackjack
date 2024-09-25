@@ -1,0 +1,19 @@
+[
+  {
+    "value": 5,
+    "img": "./images/chips/Chip_5-removed-preview.webp"
+  },
+  {
+    "value": 10,
+    "img": "./images/chips/Chip_10-removed-preview.webp"
+  },
+  { "value": 25, "img": "./images/chips/Chip_25-removed-preview.webp" },
+  {
+    "value": 100,
+    "img": "./images/chips/Chip_100-removed-preview.webp"
+  },
+  {
+    "value": "all-in",
+    "img": "./images/chips/MCLX.webp"
+  }
+]
