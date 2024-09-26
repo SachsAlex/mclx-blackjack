@@ -8,12 +8,17 @@ import Stand from "./components/player-choices/stand";
 import NewGame from "./components/player-choices/newGame/NewGame";
 import Hit from "./components/player-choices/hit";
 import Chip5 from "./components/chips/chip5/Chip5";
+import Chip10 from "./components/chips/chip10/Chip10";
+import Chip25 from "./components/chips/chip25/Chip25";
+import Chip100 from "./components/chips/chip100/Chip100";
+import ChipAll from "./components/chips/chipAll-In/ChipAll";
 
 const App = () => {
   const [deck, setDeck] = useState([]);
   const [dealer, setDealer] = useState(null);
   const [player, setPlayer] = useState(null);
   const [score, setScore] = useState(100);
+  const [chipBet, setChipBet] = useState(0);
   const [inputValue, setInputValue] = useState("");
   const [currentBet, setCurrentBet] = useState(null);
   const [gameOver, setGameOver] = useState(false);
@@ -60,6 +65,7 @@ const App = () => {
         setDeck(updatedDeck);
         setDealer(dealer);
         setPlayer(player);
+        setChipBet(null);
         setCurrentBet(null);
         setGameOver(false);
         setMessage(null);
@@ -73,6 +79,7 @@ const App = () => {
       setDealer(dealer);
       setPlayer(player);
       setScore(100);
+      setChipBet(null);
       setInputValue("");
       setCurrentBet(null);
       setGameOver(false);
@@ -88,7 +95,7 @@ const App = () => {
     return { randomCard, updatedDeck };
   };
 
-  const placeBet = () => {
+  const placeBetChip = () => {
     const bet = inputValue;
     if (bet > score) {
       setMessage("Insufficient funds to bet that amount.");
@@ -97,22 +104,9 @@ const App = () => {
     } else {
       setScore(score - bet);
       setInputValue("");
-      setCurrentBet(bet);
+      setCurrentBet(chipBet);
     }
   };
-
-  // const placeBetChip = () => {
-  //   const bet = chipValue;
-  //   if (bet > score) {
-  //     setMessage("Insufficient funds to bet that amount.");
-  //   } else if (bet % 1 !== 0) {
-  //     setMessage("Please bet whole numbers only.");
-  //   } else {
-  //     setScore(score - bet);
-  //     setInputValue("");
-  //     setCurrentBet(bet);
-  //   }
-  // };
 
   const getCount = cards => {
     const rearranged = [];
@@ -134,9 +128,40 @@ const App = () => {
       }
     }, 0);
   };
-
+  // currentBet, nicht neue bet berechnen!
   return (
     <div className="background">
+      <div className="chip">
+        {!currentBet ? ( //verändert Layout der Seite!
+          <div className="input-bet"></div>
+        ) : null}
+        {gameOver && (
+          <div className="buttons">
+            <Button onClick={() => startNewGame("continue")} text="Continue" />
+          </div>
+        )}
+
+        <Chip5
+          score={score}
+          setScore={setScore}
+          chipBet={chipBet}
+          setChipBet={setChipBet}
+          currentBet={currentBet}
+          setCurrentBet={setCurrentBet}
+          message={message}
+          setMessage={setMessage}
+        />
+        <Chip10
+          score={score}
+          setScore={setScore}
+          chipBet={chipBet}
+          setChipBet={setChipBet}
+          currentBet={currentBet}
+          setCurrentBet={setCurrentBet}
+          message={message}
+          setMessage={setMessage}
+        />
+      </div>
       <div>
         <p className="font">Dealer's Hand ({dealer?.count || 0})</p>
         <table className="cards">
@@ -208,26 +233,42 @@ const App = () => {
             setMessage={setMessage}
           />
         </div>
-        <p className="font">Score: {score}</p>
-        {!currentBet ? (
-          <div className="input-bet">
-            <form>
-              <input
-                type="text"
-                name="bet"
-                placeholder=""
-                value={inputValue}
-                onChange={e => setInputValue(+e.target.value)}
-              />
-            </form>
-            <Button onClick={placeBet} text="Place Bet" />
-          </div>
-        ) : null}
-        {gameOver && (
-          <div className="buttons">
-            <Button onClick={() => startNewGame("continue")} text="Continue" />
-          </div>
-        )}
+        <div className="font">Einsatz: {chipBet}</div>
+
+        <div className="font">Score: {score}</div>
+        <Button onClick={placeBetChip} text="Place Bet Chip" />
+      </div>
+      <div className="chip">
+        <Chip25
+          score={score}
+          setScore={setScore}
+          chipBet={chipBet}
+          setChipBet={setChipBet}
+          currentBet={currentBet}
+          setCurrentBet={setCurrentBet}
+          message={message}
+          setMessage={setMessage}
+        />{" "}
+        <Chip100
+          score={score}
+          setScore={setScore}
+          chipBet={chipBet}
+          setChipBet={setChipBet}
+          currentBet={currentBet}
+          setCurrentBet={setCurrentBet}
+          message={message}
+          setMessage={setMessage}
+        />{" "}
+        <ChipAll
+          score={score}
+          setScore={setScore}
+          chipBet={chipBet}
+          setChipBet={setChipBet}
+          currentBet={currentBet}
+          setCurrentBet={setCurrentBet}
+          message={message}
+          setMessage={setMessage}
+        />
       </div>
     </div>
   );
