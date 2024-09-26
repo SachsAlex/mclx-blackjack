@@ -128,7 +128,7 @@ const App = () => {
       }
     }, 0);
   };
-  // currentBet, nicht neue bet berechnen!
+
   return (
     <div className="background">
       <div className="chip">
