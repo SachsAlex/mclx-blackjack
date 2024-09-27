@@ -132,15 +132,6 @@ const App = () => {
   return (
     <div className="background">
       <div className="chip">
-        {!currentBet ? ( //verändert Layout der Seite!
-          <div className="input-bet"></div>
-        ) : null}
-        {gameOver && (
-          <div className="buttons">
-            <Button onClick={() => startNewGame("continue")} text="Continue" />
-          </div>
-        )}
-
         <Chip5
           score={score}
           setScore={setScore}
@@ -184,59 +175,75 @@ const App = () => {
             </tr>
           </tbody>
         </table>
-        <div className="buttons">
-          <NewGame
-            deck={deck}
-            setDeck={setDeck}
-            dealer={dealer}
-            setDealer={setDealer}
-            player={player}
-            setPlayer={setPlayer}
-            score={score}
-            setScore={setScore}
-            inputValue={inputValue}
-            setInputValue={setInputValue}
-            currentBet={currentBet}
-            setCurrentBet={setCurrentBet}
-            gameOver={gameOver}
-            setGameOver={setGameOver}
-            message={message}
-            setMessage={setMessage}
-            initialData={initialData}
-          />
-          <Hit
-            deck={deck}
-            setDeck={setDeck}
-            player={player}
-            setPlayer={setPlayer}
-            currentBet={currentBet}
-            setCurrentBet={setCurrentBet}
-            gameOver={gameOver}
-            setGameOver={setGameOver}
-            message={message}
-            setMessage={setMessage}
-          />
-          <Stand
-            deck={deck}
-            setDeck={setDeck}
-            dealer={dealer}
-            setDealer={setDealer}
-            player={player}
-            setPlayer={setPlayer}
-            score={score}
-            setScore={setScore}
-            currentBet={currentBet}
-            setCurrentBet={setCurrentBet}
-            gameOver={gameOver}
-            setGameOver={setGameOver}
-            message={message}
-            setMessage={setMessage}
-          />
-        </div>
-        <div className="font">Einsatz: {chipBet}</div>
+        <div className="outerContainer">
+          <div className="innerContainer">
+            <div className="buttons">
+              {!currentBet ? ( //verändert Layout der Seite!
+                <div className="input-bet"></div>
+              ) : null}
+              {gameOver && (
+                <div className="buttons">
+                  <Button
+                    onClick={() => startNewGame("continue")}
+                    text="Continue"
+                  />
+                </div>
+              )}
 
-        <div className="font">Score: {score}</div>
-        <Button onClick={placeBetChip} text="Place Bet Chip" />
+              <NewGame
+                deck={deck}
+                setDeck={setDeck}
+                dealer={dealer}
+                setDealer={setDealer}
+                player={player}
+                setPlayer={setPlayer}
+                score={score}
+                setScore={setScore}
+                inputValue={inputValue}
+                setInputValue={setInputValue}
+                currentBet={currentBet}
+                setCurrentBet={setCurrentBet}
+                gameOver={gameOver}
+                setGameOver={setGameOver}
+                message={message}
+                setMessage={setMessage}
+                initialData={initialData}
+              />
+              <Hit
+                deck={deck}
+                setDeck={setDeck}
+                player={player}
+                setPlayer={setPlayer}
+                currentBet={currentBet}
+                setCurrentBet={setCurrentBet}
+                gameOver={gameOver}
+                setGameOver={setGameOver}
+                message={message}
+                setMessage={setMessage}
+              />
+              <Stand
+                deck={deck}
+                setDeck={setDeck}
+                dealer={dealer}
+                setDealer={setDealer}
+                player={player}
+                setPlayer={setPlayer}
+                score={score}
+                setScore={setScore}
+                currentBet={currentBet}
+                setCurrentBet={setCurrentBet}
+                gameOver={gameOver}
+                setGameOver={setGameOver}
+                message={message}
+                setMessage={setMessage}
+              />
+            </div>
+            <div className="font">Einsatz: {chipBet}</div>
+
+            <div className="font">Score: {score}</div>
+            <Button onClick={placeBetChip} text="Place Bet Chip" />
+          </div>
+        </div>
       </div>
       <div className="chip">
         <Chip25
