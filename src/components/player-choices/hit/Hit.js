@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Button from "../../button/Button";
+import styles from "./Hit.module.css";
 
 const Hit = ({
   deck,
@@ -68,7 +68,15 @@ const Hit = ({
       setMessage("Game over! Please start a new game.");
     }
   };
-  return <Button onClick={handleHit} text="Hit" />;
+  return (
+    <img
+      className={styles.hit}
+      src="/images/flaticon/positive-abstimmung.webp"
+      alt="Hit"
+      onClick={handleHit}
+      title="Hit"
+    />
+  );
 };
 
 export default Hit;

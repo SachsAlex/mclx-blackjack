@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Button from "../../button/Button";
+import styles from "./Stand.module.css";
 
 const Stand = ({
   deck,
@@ -109,7 +109,15 @@ const Stand = ({
       setMessage("Game over! Please start a new game.");
     }
   };
-  return <Button onClick={handleStand} text="Stand" />;
+  return (
+    <img
+      className={styles.stand}
+      src="/images/flaticon/negative-abstimmung.webp"
+      alt="Stand"
+      onClick={handleStand}
+      title="Stand"
+    />
+  );
 };
 
 export default Stand;
