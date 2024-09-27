@@ -23,14 +23,14 @@ const App = () => {
   const [currentBet, setCurrentBet] = useState(null);
   const [gameOver, setGameOver] = useState(false);
   const [message, setMessage] = useState(null);
-  const [initalData] = useState([...data]);
+  const [initialData] = useState([...data]);
 
   useEffect(() => {
     startNewGame();
   }, []);
 
   const generateDeck = () => {
-    return [...initalData];
+    return [...initialData];
     // Kopiert Elemente des Original Arrays
     // Keine simple Referenz!
   };
@@ -49,7 +49,7 @@ const App = () => {
       cards: dealerStartingHand,
       count: getCount(dealerStartingHand),
     };
-    console.log("InitialData: ", initalData, playerCard2.updatedDeck);
+    console.log("InitialData: ", initialData, playerCard2.updatedDeck);
     console.log("Dealer Start Hand: ", dealerStartingHand);
     console.log("Dealer: ", dealer);
     console.log("Player: ", player);
@@ -59,7 +59,7 @@ const App = () => {
   const startNewGame = (type = "new") => {
     if (type === "continue") {
       if (score > 0) {
-        console.log("InitialData: ", initalData);
+        console.log("InitialData: ", initialData);
         const deckToUse = deck.length < 10 ? generateDeck() : deck;
         const { updatedDeck, player, dealer } = dealCards(deckToUse);
         setDeck(updatedDeck);
@@ -202,7 +202,7 @@ const App = () => {
             setGameOver={setGameOver}
             message={message}
             setMessage={setMessage}
-            initalData={initalData}
+            initialData={initialData}
           />
           <Hit
             deck={deck}
