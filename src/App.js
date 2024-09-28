@@ -131,7 +131,13 @@ const App = () => {
 
   return (
     <div className="background">
-      <div className="chip">
+      {message && (
+        <div className="speechBubbleDealer">
+          <div className="welcome">{message}</div>
+        </div>
+      )}
+
+      <div className="chip5">
         <Chip5
           score={score}
           setScore={setScore}
@@ -142,6 +148,8 @@ const App = () => {
           message={message}
           setMessage={setMessage}
         />
+      </div>
+      <div className="chip10">
         <Chip10
           score={score}
           setScore={setScore}
@@ -153,8 +161,19 @@ const App = () => {
           setMessage={setMessage}
         />
       </div>
-      <div>
-        <p className="font">Dealer's Hand ({dealer?.count || 0})</p>
+      <div className="chip25">
+        <Chip25
+          score={score}
+          setScore={setScore}
+          chipBet={chipBet}
+          setChipBet={setChipBet}
+          currentBet={currentBet}
+          setCurrentBet={setCurrentBet}
+          message={message}
+          setMessage={setMessage}
+        />{" "}
+      </div>
+      <div className="playerDealer">
         <table className="cards">
           <tbody>
             <tr>
@@ -164,8 +183,8 @@ const App = () => {
             </tr>
           </tbody>
         </table>
-        <p>{message}</p>
-        <p className="font">Your Hand ({player?.count || 0})</p>
+        <p className="font">Dealer's Hand ({dealer?.count || 0})</p>
+        <div className="spacerHands"></div>
         <table className="cards">
           <tbody>
             <tr>
@@ -175,12 +194,42 @@ const App = () => {
             </tr>
           </tbody>
         </table>
-        <div className="outerContainer">
-          <div className="innerContainer">
+        <p className="font">Your Hand ({player?.count || 0})</p>
+      </div>
+      <div className="chip100">
+        <Chip100
+          score={score}
+          setScore={setScore}
+          chipBet={chipBet}
+          setChipBet={setChipBet}
+          currentBet={currentBet}
+          setCurrentBet={setCurrentBet}
+          message={message}
+          setMessage={setMessage}
+        />{" "}
+      </div>
+      <div className="chipAll">
+        <ChipAll
+          score={score}
+          setScore={setScore}
+          chipBet={chipBet}
+          setChipBet={setChipBet}
+          currentBet={currentBet}
+          setCurrentBet={setCurrentBet}
+          message={message}
+          setMessage={setMessage}
+        />
+      </div>
+      <div className="outerContainer">
+        <div className="innerContainer">
+          <div className="fontBet">Einsatz: {chipBet}</div>
+
+          <div className="fontScore">Score: {score}</div>
+          <div className="spacer"></div>
+          <div>
+            <Button onClick={placeBetChip} text="Place Bet" />
             <div className="buttons">
-              {!currentBet ? ( //verändert Layout der Seite!
-                <div className="input-bet"></div>
-              ) : null}
+              {!currentBet ? <div className="input-bet"></div> : null}
               {gameOver && (
                 <div className="buttons">
                   <Button
@@ -189,7 +238,10 @@ const App = () => {
                   />
                 </div>
               )}
-
+            </div>
+          </div>
+          <div className="playerChoice">
+            <div className="buttonsChoiceLeft">
               <NewGame
                 deck={deck}
                 setDeck={setDeck}
@@ -209,6 +261,8 @@ const App = () => {
                 setMessage={setMessage}
                 initialData={initialData}
               />
+            </div>
+            <div className="buttonsChoiceMiddle">
               <Hit
                 deck={deck}
                 setDeck={setDeck}
@@ -221,6 +275,8 @@ const App = () => {
                 message={message}
                 setMessage={setMessage}
               />
+            </div>
+            <div className="buttonsChoiceRight">
               <Stand
                 deck={deck}
                 setDeck={setDeck}
@@ -236,46 +292,10 @@ const App = () => {
                 setGameOver={setGameOver}
                 message={message}
                 setMessage={setMessage}
-              />
+              />{" "}
             </div>
-            <div className="font">Einsatz: {chipBet}</div>
-
-            <div className="font">Score: {score}</div>
-            <Button onClick={placeBetChip} text="Place Bet Chip" />
           </div>
         </div>
-      </div>
-      <div className="chip">
-        <Chip25
-          score={score}
-          setScore={setScore}
-          chipBet={chipBet}
-          setChipBet={setChipBet}
-          currentBet={currentBet}
-          setCurrentBet={setCurrentBet}
-          message={message}
-          setMessage={setMessage}
-        />{" "}
-        <Chip100
-          score={score}
-          setScore={setScore}
-          chipBet={chipBet}
-          setChipBet={setChipBet}
-          currentBet={currentBet}
-          setCurrentBet={setCurrentBet}
-          message={message}
-          setMessage={setMessage}
-        />{" "}
-        <ChipAll
-          score={score}
-          setScore={setScore}
-          chipBet={chipBet}
-          setChipBet={setChipBet}
-          currentBet={currentBet}
-          setCurrentBet={setCurrentBet}
-          message={message}
-          setMessage={setMessage}
-        />
       </div>
     </div>
   );

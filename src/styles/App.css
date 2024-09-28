@@ -23,8 +23,8 @@ body {
   align-items: center;
   justify-content: center;
   position: absolute;
-  margin-left: 35vw;
-  margin-top: -75vh;
+  margin-left: 75vw;
+  margin-top: -45vh;
   width: 18.75vw;
   height: 45vh;
   border-radius: 16px;
@@ -37,6 +37,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: absolute;
   width: 90%;
   height: 90%;
   border-radius: 16px;
@@ -48,7 +49,33 @@ body {
 }
 
 button {
-  margin: 0 10px 0 10px;
+  position: absolute;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 1px;
+  border-radius: 8px;
+  margin: 2px;
+}
+
+.playerChoice {
+  position: absolute;
+  margin-top: 29vh;
+  margin-left: 0vw;
+}
+
+.buttonsChoiceLeft {
+  position: absolute;
+  margin-left: -7.7vw;
+}
+
+.buttonsChoiceMiddle {
+  position: absolute;
+  margin-left: -2.2vw;
+}
+
+.buttonsChoiceRight {
+  position: absolute;
+  margin-left: 3.1vw;
 }
 
 form {
@@ -70,8 +97,41 @@ p {
   justify-content: center;
 }
 
+.speechBubbleDealer {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  margin-left: -30.5vw;
+  margin-top: -60vh;
+  background-color: var(--primary-color);
+  border-radius: 15px;
+  padding: 12px;
+}
+
+.speechBubbleDealer:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 30px solid transparent;
+  border-left-color: var(--primary-color);
+  border-right: 0;
+  border-bottom: 0;
+  margin-top: -10px;
+  margin-right: -17px;
+}
+
+.welcome {
+  font-size: medium;
+  font-family: "Tenor Sans", sans-serif;
+}
+
 .cards {
   margin: 0 auto;
+  box-shadow: -5px 10px 10px 0px rgba(0, 0, 0, 0.7);
 }
 
 .input-bet {
@@ -85,4 +145,65 @@ p {
   color: black;
   border-radius: 15px;
   padding: 6px;
+}
+
+.fontBet {
+  display: flex;
+  align-self: flex-start;
+  position: absolute;
+  font-family: "Tenor Sans", sans-serif;
+  font-size: x-large;
+  color: var(--primary-color);
+  border-radius: 15px;
+  padding: 6px;
+}
+
+.fontScore {
+  display: flex;
+  align-self: flex-start;
+  position: absolute;
+  margin-top: 5vh;
+  font-family: "Tenor Sans", sans-serif;
+  font-size: x-large;
+  color: var(--primary-color);
+  border-radius: 15px;
+  padding: 6px;
+}
+
+.spacer {
+  margin-top: 15vh;
+}
+
+.spacerHands {
+  margin-top: 15vh;
+}
+
+.chip5 {
+  position: absolute;
+  margin-left: -55vw;
+  margin-top: -7vh;
+}
+
+.chip10 {
+  position: absolute;
+  margin-left: -45vw;
+  margin-top: 12vh;
+}
+
+.chip25 {
+  position: absolute;
+  margin-left: -29vw;
+  margin-top: 33vh;
+}
+
+.chip100 {
+  position: absolute;
+  margin-right: -29vw;
+  margin-top: 33vh;
+}
+
+.chipAll {
+  position: absolute;
+  margin-right: -48vw;
+  margin-top: 20vh;
 }

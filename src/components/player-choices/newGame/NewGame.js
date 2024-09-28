@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import data from "../../../mediathek/deck.json";
-import Button from "../../button/Button";
+import styles from "./NewGame.module.css";
 
 const NewGame = ({
   deck,
@@ -109,7 +109,15 @@ const NewGame = ({
       setMessage(null);
     }
   };
-  return <Button onClick={handleNewGame} text="New Game" />;
+  return (
+    <img
+      className={styles.newGame}
+      src="/images/flaticon/wiederholung.webp"
+      alt="New Game"
+      onClick={handleNewGame}
+      title="New Game"
+    />
+  );
 };
 
 export default NewGame;
