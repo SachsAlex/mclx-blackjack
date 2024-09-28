@@ -153,7 +153,8 @@ p {
   position: absolute;
   font-family: "Tenor Sans", sans-serif;
   font-size: x-large;
-  color: var(--primary-color);
+  /* color: var(--primary-color); */
+  color: yellow;
   border-radius: 15px;
   padding: 6px;
 }
@@ -165,7 +166,8 @@ p {
   margin-top: 5vh;
   font-family: "Tenor Sans", sans-serif;
   font-size: x-large;
-  color: var(--primary-color);
+  /* color: var(--primary-color); */
+  color: chartreuse;
   border-radius: 15px;
   padding: 6px;
 }
