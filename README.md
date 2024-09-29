@@ -30,7 +30,7 @@
 <br />
 <div align="center">
   <a >
-    <img src="images/chips/MCLX.webp" alt="Logo" width="80" height="80" />
+    <img src="public/images/chips/MCLX.webp" alt="Logo" width="80" height="80" />
   </a>
 
   <h3 align="center">MCLX BlackJack</h3>
