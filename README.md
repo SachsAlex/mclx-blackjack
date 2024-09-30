@@ -32,10 +32,13 @@
   <h3 align="center">MCLX BlackJack</h3>
 
   <p align="center">
-    Welcome to MCLX BlackJack!
-    It is part of a group project for a course in Cloud- and Webdevelopment.
+    Welcome to MCLX BlackJack! <br />
+    It is part of a group project for a course in Cloud- and Webdevelopment. <br />
     The goal was to create a frontend-app to implement in my teams website as a component.
-    Please feel free to use and edit this package/ repository.
+    Feel free to use and edit this package/ repository for your own use.
+    If your do, please add the credits of this README.md to your project.
+    The Icons are only for free, if you link them to the original website.
+    Have a good day!
   </p>
 </div>
 
