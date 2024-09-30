@@ -13,6 +13,8 @@ const NewGame = ({
   setScore,
   inputValue,
   setInputValue,
+  chipBet,
+  setChipBet,
   currentBet,
   setCurrentBet,
   gameOver,
@@ -45,10 +47,6 @@ const NewGame = ({
       cards: dealerStartingHand,
       count: getCount(dealerStartingHand),
     };
-    console.log("InitialData: ", initialData, playerCard2.updatedDeck);
-    console.log("Dealer Start Hand: ", dealerStartingHand);
-    console.log("Dealer: ", dealer);
-    console.log("Player: ", player);
     return { updatedDeck: playerCard2.updatedDeck, player, dealer };
   };
 
@@ -90,11 +88,12 @@ const NewGame = ({
         setDeck(updatedDeck);
         setDealer(dealer);
         setPlayer(player);
+        setChipBet(null);
         setCurrentBet(null);
         setGameOver(false);
         setMessage(null);
       } else {
-        setMessage("Game over! You are broke! Please start a new game.");
+        setMessage("Game over! You are broke!\nPlease start a new game.");
       }
     } else {
       const newDeck = generateDeck();
@@ -104,6 +103,7 @@ const NewGame = ({
       setPlayer(player);
       setScore(100);
       setInputValue("");
+      setChipBet(null);
       setCurrentBet(null);
       setGameOver(false);
       setMessage(null);

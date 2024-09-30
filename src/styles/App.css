@@ -101,7 +101,6 @@ p {
   position: absolute;
   display: flex;
   flex-direction: row;
-  position: absolute;
   margin-left: -30.5vw;
   margin-top: -60vh;
   background-color: var(--primary-color);
@@ -127,6 +126,7 @@ p {
 .welcome {
   font-size: medium;
   font-family: "Tenor Sans", sans-serif;
+  white-space: pre;
 }
 
 .cards {

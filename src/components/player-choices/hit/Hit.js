@@ -65,7 +65,7 @@ const Hit = ({
         setMessage("Please place bet.");
       }
     } else {
-      setMessage("Game over! Please start a new game.");
+      setMessage("Game over!\nPlease start a new game.");
     }
   };
   return (

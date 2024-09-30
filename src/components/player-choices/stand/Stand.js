@@ -82,7 +82,7 @@ const Stand = ({
           setDealer(newDealer);
           setScore(score + currentBet * 2);
           setGameOver(true);
-          setMessage("Dealer bust! You win!");
+          setMessage("Dealer bust!\nYou win!");
         } else {
           const winner = getWinner(newDealer, player);
           let newScore = score;
@@ -106,7 +106,7 @@ const Stand = ({
         setMessage("Please place bet.");
       }
     } else {
-      setMessage("Game over! Please start a new game.");
+      setMessage("Game over!\nPlease start a new game.");
     }
   };
   return (
