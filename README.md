@@ -20,7 +20,7 @@
 -->
 
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][[linkedin-url](https://www.linkedin.com/in/alexander-sachs-01a917308/)]
+[![LinkedIn][linkedin-shield]][(https://www.linkedin.com/in/alexander-sachs-01a917308/)]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -36,7 +36,7 @@
     It is part of a group project for a course in Cloud- and Webdevelopment. <br />
     The goal was to create a frontend-app to implement in my teams website as a component. <br />
     Feel free to use and edit this package/ repository for your own use. <br />
-    If your do, please add the credits of this README.md to your project.
+    If your do, please add the credits of this README.md to your project. <br />
     The Icons are only for free, if you link them to the original website. <br />
     Have a good day!
   </p>
