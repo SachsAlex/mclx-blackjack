@@ -17,6 +17,9 @@ The used icons are only for free, if you give credit to the creators via a link 
 ### Installing
 
 - [How/where to download your program](https://github.com/SachsAlex/mclx-blackjack.git)
+```
+git clone https://github.com/SachsAlex/casino-frontend.git
+```
 
 ```
 npm install
