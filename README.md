@@ -4,8 +4,8 @@ BlackJack App for simple use. Part of the project: MCLX Casino.
 
 ## Description
 
-Play BlackJack, bet a certain amount with the chips and achieve new Highscores.
-If you plan to use this repository, please reference **Acknowledgments**.
+Play BlackJack, bet a certain amount with the chips and achieve new Highscores. <br />
+If you plan to use this repository, please reference **Acknowledgments**. <br />
 The used icons are only for free, if you give credit to the creators via a link to the original.
 
 ## Getting Started
