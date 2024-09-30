@@ -5,13 +5,14 @@ BlackJack App for simple use. Part of the project: MCLX Casino.
 ## Description
 
 Play BlackJack, bet a certain amount with the chips and achieve new Highscores.
+If you plan to use this repository, please reference **Acknowledgments**.
+The used icons are only for free, if you give credit to the creators via a link to the original.
 
 ## Getting Started
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* Node.js
 
 ### Installing
 
@@ -41,7 +42,7 @@ This project is licensed under the [MIT] License - see the LICENSE.md file for d
 ## Acknowledgments
 
 Inspiration, code snippets, etc.
-* [BlackJack in CodePen]([https://github.com/matiassingers/awesome-readme](https://codepen.io/jeffleu/pen/MbVGmM))
+* [BlackJack in CodePen](https://codepen.io/jeffleu/pen/MbVGmM)
 
 Icons:
 * [Hit](https://www.flaticon.com/de/kostenloses-icon/positive-abstimmung_1533913)
