@@ -12,18 +12,20 @@ The used icons are only for free, if you give credit to the creators via a link 
 
 ### Dependencies
 
-* Node.js
+- Node.js
 
 ### Installing
 
-* [How/where to download your program](https://github.com/SachsAlex/mclx-blackjack.git)
+- [How/where to download your program](https://github.com/SachsAlex/mclx-blackjack.git)
+
 ```
 npm install
 ```
 
 ### Executing program
 
-* How to run the program
+- How to run the program
+
 ```
 npm run start
 ```
@@ -42,12 +44,15 @@ This project is licensed under the [MIT] License - see the LICENSE.md file for d
 ## Acknowledgments
 
 Inspiration, code snippets, etc.
-* [BlackJack in CodePen](https://codepen.io/jeffleu/pen/MbVGmM)
+
+- [BlackJack in CodePen](https://codepen.io/jeffleu/pen/MbVGmM)
 
 Icons:
-* [Hit](https://www.flaticon.com/de/kostenloses-icon/positive-abstimmung_1533913)
-* [Stand](https://www.flaticon.com/de/kostenloses-icon/negative-abstimmung_1533919)
-* [NewGame](https://www.flaticon.com/de/kostenloses-icon/wiederholung_5869968)
+
+- [Hit](https://www.flaticon.com/de/kostenloses-icon/positive-abstimmung_1533913)
+- [Stand](https://www.flaticon.com/de/kostenloses-icon/negative-abstimmung_1533919)
+- [NewGame](https://www.flaticon.com/de/kostenloses-icon/wiederholung_5869968)
 
 Carbon Design for card backside:
-* [Carbon Design](https://www.freepik.com/free-vector/shiny-black-hexagonal-carbon-fiber-texture-background_24373238.htm#query=carbon%20fibre%20texture&position=4&from_view=keyword&track=ais_hybrid&uuid=47836c13-8c77-4e49-b73d-779a4ae2ab94)
+
+- [Carbon Design](https://www.freepik.com/free-vector/shiny-black-hexagonal-carbon-fiber-texture-background_24373238.htm#query=carbon%20fibre%20texture&position=4&from_view=keyword&track=ais_hybrid&uuid=47836c13-8c77-4e49-b73d-779a4ae2ab94)
